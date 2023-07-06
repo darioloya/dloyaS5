@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="dloyaS5.MainPage">
+
+    <StackLayout Padding="20,20,20,20">
+
+        <Label Text="CONSUMO DE WS CON XAMARIN" FontSize="20" HorizontalTextAlignment="Center"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Text="CODIGO" FontSize="12" TextColor="Red" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="NOMBRE" FontSize="12" TextColor="Red" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="APELLIDO" FontSize="12" TextColor="Red" Grid.Row="0" Grid.Column="2"/>
+            <Label Text="EDAD" FontSize="12" TextColor="Red" Grid.Row="0" Grid.Column="3"/>
+
+        </Grid>
+
+        <ListView x:Name="ListaEstudiantes" ItemSelected="ListaEstudiantes_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblCodigo" Text="{Binding codigo}" Grid.Row="0" Grid.Column="0"/>
+                                <Label x:Name="lblNombre" Text="{Binding nombre}" Grid.Row="0" Grid.Column="1"/>
+                                <Label x:Name="lblApellido" Text="{Binding apellido}" Grid.Row="0" Grid.Column="2"/>
+                                <Label x:Name="lblEdad" Text="{Binding edad}" Grid.Row="0" Grid.Column="3"/>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="btnRefrescar" Text="Refrescar" Clicked="btnRefrescar_Clicked"></Button>
+        <Button x:Name="btnConsulta" Text="INSERTAR" Clicked="btnConsulta_Clicked"></Button>
+    </StackLayout>
+
+</ContentPage>
