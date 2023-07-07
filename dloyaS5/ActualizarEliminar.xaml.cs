@@ -14,7 +14,7 @@ namespace dloyaS5
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActualizarEliminar : ContentPage
     {
-        private string URL = "http://192.168.100.135/clinica/post.php";
+        private string URL = "http://10.2.14.154/clinica/post.php";
 
         public ActualizarEliminar(Estudiante datos)
         {
@@ -35,11 +35,15 @@ namespace dloyaS5
                     "DELETE",
                     new NameValueCollection()
                 );
-                DisplayAlert("OK", "Estudiante Eliminado", "Cerrar");
+                //DisplayAlert("OK", "Estudiante Eliminado", "Cerrar");
+                var mensaje = "Estudiante Eliminado";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", ex.Message, "Cerrar");
+                //DisplayAlert("Error", ex.Message, "Cerrar");
+                DependencyService.Get<Mensaje>().longAlert(ex.Message);
             }
         }
 
@@ -53,11 +57,15 @@ namespace dloyaS5
                     "PUT",
                     new NameValueCollection()
                 );
-                DisplayAlert("OK", "Estudiante Actualizado", "Cerrar");
+                //DisplayAlert("OK", "Estudiante Actualizado", "Cerrar");
+                var mensaje = "Estudiante Actualizado";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", ex.Message, "Cerrar");
+                //DisplayAlert("Error", ex.Message, "Cerrar");
+                DependencyService.Get<Mensaje>().longAlert(ex.Message);
             }
         }
     }

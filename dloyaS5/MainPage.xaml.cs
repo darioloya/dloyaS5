@@ -14,7 +14,7 @@ namespace dloyaS5
 {
     public partial class MainPage : ContentPage
     {
-        private string URL = "http://192.168.100.135/clinica/post.php";
+        private string URL = "http://10.2.14.154/clinica/post.php";
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<Estudiante> post;
 
@@ -35,7 +35,7 @@ namespace dloyaS5
 
         private async void btnConsulta_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Insertar());
+            await Navigation.PushAsync(new Insertar());
         }
 
         private void ListaEstudiantes_ItemSelected(object sender, SelectedItemChangedEventArgs e)

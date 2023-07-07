@@ -13,7 +13,7 @@ namespace dloyaS5
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Insertar : ContentPage
     {
-        private string URL = "http://192.168.100.135/clinica/post.php";
+        private string URL = "http://10.2.14.154/clinica/post.php";
 
         public Insertar()
         {
@@ -31,7 +31,10 @@ namespace dloyaS5
                 datos.Add("apellido", txtApellido.Text);
                 datos.Add("edad", txtEdad.Text);
                 client.UploadValues(URL, "POST", datos);
-                DisplayAlert("OK", "Estudiante Ingresado", "Cerrar");
+                //DisplayAlert("OK", "Estudiante Ingresado", "Cerrar");
+                var mensaje = "Estudiante Ingresado";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception ex)
             {
